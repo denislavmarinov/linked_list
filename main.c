@@ -16,6 +16,7 @@ SN *head = NULL;
 int addNode(int data);
 int searchNode(int data);
 int deleteNode(int data);
+void printNode();
 
 int main()
 {
@@ -157,4 +158,30 @@ int deleteNode(int data)
         return -1;
     }
 }
+/*
+* Function for printing all element of the list
+* params: Node
+* return: None
+*/
+void printNode()
+{
+    SN *temp = head;
 
+    // Check if the list is empty
+    if (temp == NULL)
+    {
+        // Print the message that the list is empty
+        printf("The list is empty");
+    }
+    else
+    {
+        // Loop that goes through all elements
+        while(temp != NULL)
+        {
+            // Print the element value on new line
+            printf("%d\n", temp->data);
+            // Go to the next element
+            temp = temp->next;
+        }
+    }
+}
