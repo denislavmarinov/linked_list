@@ -14,6 +14,7 @@ SN *head = NULL;
 
 //Define the functions
 void addNode(int data);
+void searchNode(int data);
 
 
 int main()
@@ -22,7 +23,7 @@ int main()
 }
 
 /*
-* Method for adding new element to the list
+* Function for adding new element to the list
 * params:
 *   - int data - the data that is to be entered
 * return: None
@@ -62,5 +63,40 @@ void addNode(int data)
             // Add the link for the new to the previous one
             temp->next = newNode;
         }
+    }
+}
+
+/*
+* Function for searching new element to the list
+* params:
+*   - int data - the data that is to be entered
+* return:
+*    int - the position of the element
+*    -1 - the element is not found
+*/
+void searchNode(int data)
+{
+    int positionOfSearchedNode = 0;
+    SN *searchedNode = NULL, *temp = head;
+
+    // Loop that goes through the list until it found the searched item
+    while (temp->data != data)
+    {
+        temp = temp->next;
+        positionOfSearchedNode++;
+    }
+    // Assign the searchedNode variable to the element where the loop has ended
+    searchedNode = temp;
+
+    // Check if the element is found
+    if (searchedNode->data == data)
+    {
+        // If the element is found, return the position of the element
+        return positionOfSearchedNode;
+    }
+    else
+    {
+        // If the element is not found, return -1
+        return -1;
     }
 }
