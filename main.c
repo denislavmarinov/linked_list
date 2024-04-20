@@ -21,6 +21,47 @@ int clearNode();
 
 int main()
 {
+    // Add new elements to the list
+    int result;
+    printf("Adding element ...\n");
+    result = addNode(1);
+    printf("Result: %d\n", result);
+    printf("Adding element ...\n");
+    result = addNode(2);
+    printf("Result: %d\n", result);
+    printf("Adding element ...\n");
+    result = addNode(3);
+    printf("Result: %d\n", result);
+    printf("----------------------------------------------------------------\n");
+    // Print all elements from the list
+    printNode();
+    printf("----------------------------------------------------------------\n");
+    // Get the position of searched element
+    int position;
+    // Search for item that exists
+    printf("Searching for existing element position ...\n");
+    position = searchNode(2);
+    printf("%d", position);
+    // Search for item that does not exist
+    printf("Searching for NOT existing element position ...\n");
+    position = searchNode(5);
+    printf("%d", position);
+    printf("----------------------------------------------------------------\n");
+    // Delete item from the list
+    printf("Deleting element from the node ...\n");
+    result = deleteNode(2);
+    printf("Result: %d\n", result);
+    printf("----------------------------------------------------------------\n");
+    //Printing all elements of the list
+    printNode();
+    printf("----------------------------------------------------------------\n");
+    // Deleting whole node
+    printf("Clearing whole node\n");
+    result = clearNode();
+    printf("Result: %d\n", result);
+    printf("----------------------------------------------------------------\n");
+    // Printing the empty node
+    printNode();
     return 0;
 }
 
