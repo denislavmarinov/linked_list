@@ -40,12 +40,13 @@ int main()
     int position;
     // Search for item that exists
     printf("Searching for existing element position ...\n");
+    // Warning positions starts from 0
     position = searchNode(2);
-    printf("%d", position);
+    printf("%d\n", position);
     // Search for item that does not exist
     printf("Searching for NOT existing element position ...\n");
     position = searchNode(5);
-    printf("%d", position);
+    printf("%d\n", position);
     printf("----------------------------------------------------------------\n");
     // Delete item from the list
     printf("Deleting element from the node ...\n");
@@ -75,7 +76,7 @@ int main()
 */
 int addNode(int data)
 {
-    SN *temp = NULL, *newNode = NULL;
+    SN *temp = head, *newNode = NULL;
     // Check if the linked list is empty
     if (head == NULL)
     {
@@ -141,7 +142,7 @@ int searchNode(int data)
     SN *searchedNode = NULL, *temp = head;
 
     // Loop that goes through the list until it found the searched item
-    while (temp->data != data)
+    while (temp->data != data && temp->next != NULL)
     {
         temp = temp->next;
         positionOfSearchedNode++;
