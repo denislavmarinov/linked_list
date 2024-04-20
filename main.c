@@ -13,7 +13,7 @@ typedef struct Node SN;
 SN *head = NULL;
 
 //Define the functions
-void addNode(int data);
+int addNode(int data);
 int searchNode(int data);
 int deleteNode(int data);
 
@@ -26,9 +26,11 @@ int main()
 * Function for adding new element to the list
 * params:
 *   - int data - the data that is to be entered
-* return: None
+* return:
+*   0 - the element is successfully added
+*   -1 - there was an error while entering the element to the list
 */
-void addNode(int data)
+int addNode(int data)
 {
     SN *temp = NULL, *newNode = NULL;
     // Check if the linked list is empty
@@ -42,6 +44,14 @@ void addNode(int data)
             // Save the data
             head->data = data;
             head->next = NULL;
+
+            // Returns 0 for success
+            return 0;
+        }
+        else
+        {
+            // Returns an error
+            return -1;
         }
     }
     else
@@ -62,6 +72,14 @@ void addNode(int data)
             newNode->next = NULL;
             // Add the link for the new to the previous one
             temp->next = newNode;
+
+            // Return 0 for success
+            return 0;
+        }
+        else
+        {
+            // Returns an error
+            return -1;
         }
     }
 }
