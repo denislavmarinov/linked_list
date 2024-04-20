@@ -14,12 +14,12 @@ SN *head = NULL;
 
 //Define the functions
 void addNode(int data);
-void searchNode(int data);
-
+int searchNode(int data);
+int deleteNode(int data);
 
 int main()
 {
-
+    return 0;
 }
 
 /*
@@ -67,14 +67,14 @@ void addNode(int data)
 }
 
 /*
-* Function for searching new element to the list
+* Function for searching element of the list
 * params:
 *   - int data - the data that is to be entered
 * return:
 *    int - the position of the element
 *    -1 - the element is not found
 */
-void searchNode(int data)
+int searchNode(int data)
 {
     int positionOfSearchedNode = 0;
     SN *searchedNode = NULL, *temp = head;
@@ -100,3 +100,43 @@ void searchNode(int data)
         return -1;
     }
 }
+/*
+* Function for deleting element of the list
+* params:
+*   - int data - the data that is to be entered
+* return:
+*   0 - when the element is correctly deleted
+*   -1 - when the element is not found
+*/
+int deleteNode(int data)
+{
+    // Get the position of the element
+    int positionOfTheNode = searchNode(data);
+    SN *deleteNode = NULL, *temp = head;
+    // Check if the element exists
+    if (positionOfTheNode != -1)
+    {
+        // Go through the list until the previous node is fonud
+        for (int i = 0; i < positionOfTheNode - 2; i++)
+        {
+            temp = temp->next;
+        }
+        // Get the address of the element that will be deleted
+        deleteNode = temp->next;
+
+        // Make the link between the previous and the next element
+        temp->next = temp->next->next;
+
+        // Delete the element
+        free(deleteNode);
+
+        // Return the result of the function
+        return 0;
+    }
+    else
+    {
+        // The element is not found and the function returns -1
+        return -1;
+    }
+}
+
