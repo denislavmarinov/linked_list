@@ -17,6 +17,7 @@ int addNode(int data);
 int searchNode(int data);
 int deleteNode(int data);
 void printNode();
+int clearNode();
 
 int main()
 {
@@ -184,4 +185,29 @@ void printNode()
             temp = temp->next;
         }
     }
+}
+
+/*
+* Function for clearing all elements of the list
+* params: Node
+* return:
+*   0 - the whole list is cleared successfully
+*/
+int clearNode()
+{
+    SN *currentNode = NULL, *temp = head;
+    // Loop that goes through the whole list
+    while (temp->next != NULL)
+    {
+        // Save the current node
+        currentNode = temp;
+        // Go to the next node
+        temp = temp->next;
+        // Delete the current node
+        free(currentNode);
+    }
+    // Set the list to NULL
+    head = NULL;
+    // Return success message
+    return 0;
 }
